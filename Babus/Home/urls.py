@@ -5,7 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-#app_name= "Home"
+app_name= "Home"
 urlpatterns = [
      path('',home,name='index'),
       

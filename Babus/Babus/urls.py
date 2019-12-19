@@ -21,5 +21,6 @@ urlpatterns = [
     path('',include('Home.urls')),
     path('home',include('Home.urls')),
     path('signup/',include('Signup.urls')),
+    path('contact/',include('Contact.urls')),
     
 ]
