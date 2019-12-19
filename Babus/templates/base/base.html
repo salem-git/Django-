@@ -52,6 +52,7 @@
             <nav class="main-menu mobile-menu">
                 <ul>
                     <li class="active"><a href="{% url 'Home:index' %}">Home</a></li>
+                    <li class="active"><a href="{% url 'Buses:buses' %}">Buses</a></li>
                     <li><a href="how-it-works.html">Explore</a></li>
                     <li><a href="listings.html">More Cities</a></li>
                     <li><a href="blog.html">News</a></li>
@@ -70,6 +71,7 @@
     </header>
     <!-- Header End -->
 
+    {% block content %}
     <!-- Hero Section Begin -->
     <section class="hero-section set-bg" data-setbg="{% static 'img/hero-bg.jpg'%}">
         <div class="container">
@@ -104,10 +106,10 @@
         </div>
     </section>
     <!-- Hero Section End -->
-    {% block content %}
+
 
   
-  {% endblock %}
+
 
     <!-- Trending Restaurant Section Begin -->
     <section class="trending-restaurant spad">
@@ -371,7 +373,7 @@
     <!-- App Section End -->
 
 
-
+    {% endblock %}
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">
         <div class="container">

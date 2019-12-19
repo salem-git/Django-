@@ -1,3 +1,4 @@
+{% extends 'base/base.html' %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="zxx">
@@ -67,7 +68,7 @@
         </div>
     </header>
     <!-- Header End -->
-
+    {% block content %}
     <!-- Map Section Begin -->
     <div class="map">
         <iframe
@@ -120,7 +121,7 @@
         </div>
     </section>
     <!-- Contact Section End -->
-
+    {% endblock %}
     <!-- Footer Section Begin -->
     <footer class="footer-section spad">
         <div class="container">
