@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'Train.apps.TrainConfig',
     'Buses.apps.BusesConfig',
     'Contact.apps.ContactConfig',
     'Signup.apps.SignupConfig',

@@ -23,5 +23,6 @@ urlpatterns = [
     path('signup/',include('Signup.urls')),
     path('contact/',include('Contact.urls')),
     path('buses/',include('Buses.urls')),
+    path('train/',include('Train.urls')),
     
 ]
