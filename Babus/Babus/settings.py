@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'Login.apps.LoginConfig',
+   
     'Train.apps.TrainConfig',
     'Buses.apps.BusesConfig',
     'Contact.apps.ContactConfig',
@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,8 @@ STATIC_URL = '/static/'
 # ]
 
 # STATIC_ROOT = os.path.join(BASE_DIR,'assets')
+
+CRISPY_TEMPLATE_PACK="bootstrap4"
+
+LOGIN_REDIRECT_URL = "/buses"
+LOGOUT_REDIRECT_URL = "/"

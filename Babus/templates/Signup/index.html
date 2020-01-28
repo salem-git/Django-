@@ -16,10 +16,10 @@
       </div>
   </div>
 </section>
-
+{% load crispy_forms_tags %}
  <form method="POST">
     {% csrf_token %}
-    {{form.as_p}}
+    {{form|crispy}}
     <input type="submit" value="Sign Up">
   </form>
 
