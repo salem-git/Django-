@@ -1,0 +1,14 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{{single_bus.name}}
+<br>
+{{single_bus.description}}
+<br>
+
+<a href="{% url 'Buses:pdf' %}" target="_blank" class="btn btn-sm btnsuccess">Generate Pdf</a>
+
+{% endblock %}
+
+
