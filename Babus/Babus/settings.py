@@ -32,7 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-   
+    'CustomerHome.apps.CustomerhomeConfig',
     'Train.apps.TrainConfig',
     'Buses.apps.BusesConfig',
     'Contact.apps.ContactConfig',
@@ -135,5 +135,5 @@ STATIC_URL = '/static/'
 
 CRISPY_TEMPLATE_PACK="bootstrap4"
 
-LOGIN_REDIRECT_URL = "/buses"
+LOGIN_REDIRECT_URL = "CustomerHome:CustomerHome"
 LOGOUT_REDIRECT_URL = "/"

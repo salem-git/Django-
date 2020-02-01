@@ -63,8 +63,14 @@
             </nav>
             <div class="header-right">
                 <div class="user-access">
+                    {% if user.is_authenticated %}
+                    <li class="nav-item">
+                      <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                    {% else %}
                     <a href="{% url 'Signup:signup' %}">Register/</a>
                     <a href="{% url 'login' %}">Login</a>
+                    {% endif %}
                 </div>
                 <a href="{% url 'login' %}" class="primary-btn">Buy Tickets</a>
             </div>

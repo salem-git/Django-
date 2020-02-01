@@ -7,6 +7,4 @@ app_name= "registration"
 urlpatterns = [
      path('',login,name='login'),
 
-      
 ]
-
