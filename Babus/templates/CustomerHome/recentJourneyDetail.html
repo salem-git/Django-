@@ -1,0 +1,21 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+
+{{single_journey.departure}}
+<br>
+{{single_journey.destination}}
+<br>
+{{single_journey.number_of_ticket}}
+<br>
+{{single_journey.seat_number}}
+<br>
+{{single_journey.date}}
+<br>
+
+
+<a href="{% url 'Buses:pdf' %}" target="_blank" class="btn btn-sm btnsuccess">Generate Pdf</a>
+
+{% endblock %}
+
+

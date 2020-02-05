@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>Recent Journey</h1>
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+        {% for journey in all_journey %}
+        <div class="col-md-4">
+          <div class="card mb-4 shadow-sm">
+           
+            <div class="card-body">
+              <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                <h2>{{journey.destination}}</h2>
+                <p>{{journey.departure}}<br> </p>
+                <p><a class="btn btn-secondary" href="{% url 'CustomerHome:recent_journey_detail' journey.id %}" role="button">View details &raquo;</a></p>
+                
+            </div>
+            
+            
+            <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+            
+            <div class="card-body">
+              
+            </div> -->
+          </div>
+        </div>
+        {% endfor %} 
+       
+       
+
+        <div class="pagination"> 
+          <span class="step-links"> {% if all_journey.has_previous %} <a href="?page=1">&laquo; first</a>
+             <a href="?page={{ all_journey.previous_page_number }}">previous</a> {% endif %}
+          <span class="current"> Page {{ all_journey.number }} of {{ all_journey.paginator.num_pages }}. </span>
+          {% if all_journey.has_next %}
+         
+          <a href="?page={{ all_journey.next_page_number }}">next</a> <a href="?page={{ all_journey.paginator.num_pages }}">last &raquo;</a> {% endif %} </span> </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
