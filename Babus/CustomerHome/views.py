@@ -6,7 +6,6 @@ import io
 from django.http import FileResponse 
 from reportlab.pdfgen import canvas
 from django.http import HttpResponse
-from qr_code.qrcode.utils import QRCodeOptions
 
 
 # Create your views here.
@@ -97,12 +96,10 @@ def toPdf(request):
     buffer = io.BytesIO()
     p = canvas.Canvas(buffer) #if you don't want the buffer you can write like "mm.pdf"
     p.drawString(40,450, "Ticket Reserved Successfully.Here is Your Ticket.Now you are legitmate to travel")
-
-    context = dict(
-        my_options=QRCodeOptions(size='t', border=6, error_correction='L'),
-    )
-
     
+
+
+
     p.showPage() 
     p.save()
     buffer.seek(0) 

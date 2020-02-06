@@ -25,6 +25,30 @@
         <input name="email" class="input-standard-grey" placeholder="e-mail">
         <!-- <button onclick="re()">Contact </button> -->
       <button style="background-color:black;"> <A style=" color:white;"  HREF="javascript:history.go(0)">Refresh</A> </button>
-      {% qr_from_text "Hello World!" size="T" %}
+     
       </div>
+       {% for journey in all_journey %}
+                    <div class="col-md-4">
+                      <div class="card mb-4 shadow-sm">
+                       
+                        <div class="card-body">
+                          <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                            <h2>{{journey.destination}}</h2>
+                            <p>{{journey.departure}}<br> </p>
+                            <p><a class="btn btn-secondary" href="{% url 'CustomerHome:recent_journey_detail' journey.id %}" role="button">View details &raquo;</a></p>
+                            
+                        </div>
+                        
+                        
+                        <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Thumbnail"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg>
+                        
+                        <div class="card-body">
+                          
+                        </div> -->
+                        
+                      </div>
+                    </div>
+                    
+                    {% endfor %} 
+                    
 {% endblock %}

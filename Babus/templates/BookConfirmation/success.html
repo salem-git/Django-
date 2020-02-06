@@ -1,4 +1,14 @@
+
+{% load static %}
+{% load qr_code %}
+
+{% block content %}
+<div id="success">
 <h1>Thanks for Buying a Ticket</h1>
 <div class="success"></div>
+<p>You have successfully Reserve a ticket</p>
 <p>Hope to see you again</p>
+{% qr_from_text "Hello World!" size="M" %}
 <a href="{% url 'CustomerHome:ticket' %}" target="_blank" class="btn btn-sm btnsuccess">Generate Pdf</a>
+</div>
+{% endblock %}

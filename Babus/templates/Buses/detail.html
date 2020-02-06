@@ -9,15 +9,16 @@
                 <div class="hero-text">
                     <img src="{% static 'img/placeholder.png'%}" alt="">
                     <h1>{{single_bus.name}}</h1>
+                    <div class="card mb-4" id="detail">
+                        <div class="card-body">
+                    <br>
+                    {{single_bus.description}}
+                    <br>
+                    </div>
+                    </div>
                 </div>
                 
-                <div class="card mb-4">
-                    <div class="card-body">
-                <br>
-                {{single_bus.description}}
-                <br>
-                </div>
-                </div>
+               
 
             </div>
         </div>

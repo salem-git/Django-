@@ -68,6 +68,7 @@
                       <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
                       <a class="nav-link" href="{% url 'CustomerHome:fetch_journey' %}">Recent Journey</a>
                      <a href="{% url 'CustomerHome:CustomerHome' %}" class="primary-btn">Buy Tickets</a>
+                     <a href="{% url 'CustomerHome:profile' %}" class="primary-btn">Profile</a>
                       
                     {% else %}
                     <a href="{% url 'Signup:signup' %}">Register/</a>
