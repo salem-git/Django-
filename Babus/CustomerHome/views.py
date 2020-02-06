@@ -1,8 +1,12 @@
 from django.shortcuts import render
 from .models import Journey
+from django.contrib.auth.models import User 
 from django.core.paginator import Paginator
 import io 
 from django.http import FileResponse 
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+
 
 # Create your views here.
 def index(response,id):
@@ -65,3 +69,36 @@ def buyTicket(request):
     return render(request,'BookConfirmation/buy.html')
 def confirm_ticket(request):
     return render(request,'BookConfirmation/success.html')
+def generate_pdf(request):
+    
+    # Model data
+    user = User.objects.all().order_by('username')
+
+    # Rendered
+    html_string = render_to_string('CustomerHome/ticket.html', {'user': User})
+    html = HTML(string=html_string)
+    result = html.write_pdf()
+
+    # Creating http response
+    response = HttpResponse(content_type='application/pdf;')
+    response['Content-Disposition'] = 'inline; filename=list_people.pdf'
+    response['Content-Transfer-Encoding'] = 'binary'
+    with tempfile.NamedTemporaryFile(delete=True) as output:
+        output.write(result)
+        output.flush()
+        output = open(output.name, 'r')
+        response.write(output.read())
+
+    return response
+def toPdf(request):
+    buffer = io.BytesIO()
+    p = canvas.Canvas(buffer) #if you don't want the buffer you can write like "mm.pdf"
+    p.drawString(40,450, "Ticket Reserved Successfully.Here is Your Ticket.Now you are legitmate to travel")
+    p.drawImage(10,10,url("../img/how-it-works-3.png"))
+
+
+
+    p.showPage() 
+    p.save()
+    buffer.seek(0) 
+    return FileResponse(buffer, as_attachment=True, filename='ticket.pdf')

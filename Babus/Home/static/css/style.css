@@ -2569,3 +2569,9 @@ ul{
 li{
 	list-style-type: none;
 }
+.success{
+	content: url("../img/how-it-works-3.png");
+}
+#title{
+	margin-top: -100px;
+}
