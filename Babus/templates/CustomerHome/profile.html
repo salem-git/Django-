@@ -1,0 +1,30 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load qr_code %}
+
+{% block content %}
+
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="hero-text">
+                 
+                 
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+<div class="card" >
+        <div class="p"></div>
+        <p>Username</p>
+        <input name="username" class="input-standard-grey" placeholder="username">
+        <p>Telephone Number</p>
+        <input name="telephone_number" class="input-standard-grey" placeholder="Telephone Number">
+        <p>e-mail</p>
+        <input name="email" class="input-standard-grey" placeholder="e-mail">
+        <!-- <button onclick="re()">Contact </button> -->
+      <button style="background-color:black;"> <A style=" color:white;"  HREF="javascript:history.go(0)">Refresh</A> </button>
+      {% qr_from_text "Hello World!" size="T" %}
+      </div>
+{% endblock %}

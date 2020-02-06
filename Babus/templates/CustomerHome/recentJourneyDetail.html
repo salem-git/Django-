@@ -1,36 +1,20 @@
 {% extends 'base/base.html' %}
-{% load static %}
+
 {% block content %}
 
-<section class="hero-section set-bg" data-setbg="{% static 'img/hero-bg.jpg'%}">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="hero-text">
-                    <img src="{% static 'img/placeholder.png'%}" alt="">
-                    <h1>Journey Detail</h1>
-                    
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<h4>Departure:</h4>{{single_journey.departure}}
+{{single_journey.departure}}
 <br>
-<h4>Destinaton:</h4>
 {{single_journey.destination}}
 <br>
-<h4>Number of Ticket:</h4>
 {{single_journey.number_of_ticket}}
 <br>
-<h4>Seat number:</h4>
 {{single_journey.seat_number}}
 <br>
-<h4>Journey date:</h4>
 {{single_journey.date}}
 <br>
 
 
+<a href="{% url 'Buses:pdf' %}" target="_blank" class="btn btn-sm btnsuccess">Generate Pdf</a>
 
 {% endblock %}
 

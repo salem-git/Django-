@@ -7,13 +7,14 @@
   <div class="container">
       <div class="row">
           <div class="col-lg-12">
-              <div class="hero-text" id="title">
+              <div class="hero-text">
                   <img src="{% static 'img/placeholder.png'%}" alt="">
                   <h1>Journey</h1>
                  
               </div>
               <div class="container">
                 <div class="contact-form medium-padding120">
+                  
                   <form class="contact-form" method="post" action="cutomer_reserve_submission">
                     {% csrf_token %}
                     <div class="row">
@@ -33,9 +34,12 @@
                         <input name="journey_numberOfTicket" class="input-standard-grey" placeholder="Number of Ticket">
                       </div>
                     </div>
-                   
               
                     <div class="row">
+                        
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                          <div class="i"></div>
+                        </div>
                       <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
                         <input name="journey_seatReserve" class="input-standard-grey" placeholder="Seat">
                       </div>
@@ -44,21 +48,17 @@
                   
                     <button type="submit" >Book</button>
                   </form>
-                
                   <form class="contact-form" method="post" action="buyTicket">
                     {% csrf_token %}
                   <button type="submit">Buy</button>
                   </form>
                   
-                  {% for journey in all_journey %}
-                  <p>{{journey.seat_number}}<br> </p>
-                  {% endfor %} 
                 </div>
               </div>
+                
           </div>
       </div>
   </div>
 </section>
 
-  
 {% endblock %}
