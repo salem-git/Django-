@@ -14,7 +14,7 @@
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&display=swap" rel="stylesheet">
 
-    <!-- Css Styles -->
+    <!-- Css Styles --> 
     <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/flaticon.css" type="text/css">
@@ -35,6 +35,8 @@
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/jquery-ui.min.css' %}">
 
+   
+
 </head>
 
 <body>
@@ -53,30 +55,29 @@
                 <ul>
                     <li class="active"><a href="{% url 'Home:index' %}">Home</a></li>
                  
-                    <!-- <li><a href="how-it-works.html">Explore</a></li> -->
+                    <li><a href="how-it-works.html">Explore</a></li>
                     <li class="active"><a href="{% url 'Buses:buses' %}">Buses</a></li>
                     <li class="active"><a href="{% url 'Train:train' %}">Train</a></li>
-                    <!-- <li><a href="listings.html">More Cities</a></li> -->
-                    <!-- <li><a href="blog.html">News</a></li> -->
+                    <li><a href="listings.html">More Cities</a></li>
+                    <li><a href="blog.html">News</a></li>
                     <li><a href="{% url 'Contact:contact' %}">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-right">
                 <div class="user-access">
                     {% if user.is_authenticated %}
-                  
+                    <li class="nav-item">
                       <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                      <a class="nav-link" href="{% url 'CustomerHome:fetch_journey' %}">Recent Journey</a>
-                     <a href="{% url 'CustomerHome:CustomerHome' %}" class="primary-btn">Buy Tickets</a>
-                     <a href="{% url 'CustomerHome:profile' %}" class="primary-btn">Profile</a>
-                      
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'RecentJourney:RecentJourney' %}">Recent Journey</a>
+                      </li>
                     {% else %}
                     <a href="{% url 'Signup:signup' %}">Register/</a>
                     <a href="{% url 'login' %}">Login</a>
-                    
+                    {% endif %}
                 </div>
                 <a href="{% url 'login' %}" class="primary-btn">Buy Tickets</a>
-                {% endif %}
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>
@@ -92,7 +93,7 @@
                     <div class="hero-text">
                         <img src="{% static 'img/placeholder.png'%}" alt="">
                         <h1>Let us Take you Away</h1>
-                        <form action="search" class="filter-search">
+                        <form action="#" class="filter-search">
                             <div class="category-search">
                                 <h5>Search Category</h5>
                                 <select class="ca-search">
@@ -101,14 +102,13 @@
                                     
                                 </select>
                             </div>
-                            
                             <div class="location-search">
                                 <h5>Your Location</h5>
                                 <select class="lo-search">
-                                    <option>Ethio bus</option>
-                                    <option>Selam bus</option>
-                                    <option>Yegha bus</option>
-                                    <option>geda bus</option>
+                                    <option>Addis Ababa</option>
+                                    <option>Dere dawa</option>
+                                    <option>Bahirdar</option>
+                                    <option>Awassa</option>
                                 </select>
                             </div>
                             <button type="submit">Search Now</button>
@@ -201,70 +201,7 @@
             </div>
         </div>
     </section>
-    <!-- Trending Restaurant Section End -->
-
-    <!-- Categories Section Begin -->
-    <!-- <section class="categories-section spad">
-        <div class="container-fluid">
-            <div class="categories-left">
-                <div class="categories-item set-bg large-img" data-setbg="img/categories/cat-1.jpg">
-                        <a href="img/categories/cat-1.jpg" class="img-hover pop-up"><img src="img/zoom.png" alt=""></a>
-                        <div class="categories-text">
-                            <h4>Restaurants</h4>
-                            <p>2373 Listings</p>
-                            <a href="#">View All</a>
-                        </div>
-                    </div>
-            </div>
-            <div class="categories-right">
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="categories-item set-bg" data-setbg="img/categories/cat-2.jpg">
-                            <a href="img/categories/cat-2.jpg" class="img-hover pop-up"><img src="img/zoom.png" alt=""></a>
-                            <div class="categories-text">
-                                <h4>Nightlife & Clubs</h4>
-                                <p>2373 Listings</p>
-                                <a href="#">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="categories-item set-bg" data-setbg="img/categories/cat-3.jpg">
-                            <a href="img/categories/cat-3.jpg" class="img-hover pop-up"><img src="img/zoom.png" alt=""></a>
-                            <div class="categories-text">
-                                <h4>Spa & Resorts</h4>
-                                <p>2373 Listings</p>
-                                <a href="#">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="categories-item set-bg" data-setbg="img/categories/cat-4.jpg">
-                            <a href="{% static 'img/categories/cat-4.jpg'%}" class="img-hover pop-up"><img src="{% static 'img/zoom.png'}" alt=""></a>
-                            <div class="categories-text">
-                                <h4>Hotels</h4>
-                                <p>2373 Listings</p>
-                                <a href="#">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="categories-item set-bg" data-setbg="{% static 'img/categories/cat-5.jpg'%}">
-                            <a href="{% static 'img/categories/cat-5.jpg'%}" class="img-hover pop-up"><img src="{% static 'img/zoom.png'%}" alt=""></a>
-                            <div class="categories-text">
-                                <h4>Clubs & Pubs</h4>
-                                <p>2373 Listings</p>
-                                <a href="#">View All</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section> -->
-    <!-- Categories Section End -->
-
-    <!-- Testimonial Section Begin -->
+   
     <section class="testimonial-section">
         <div class="container">
             <div class="row">
@@ -276,7 +213,7 @@
                                 quis, vestibulum quis velit. Vestibulum malesuada aliquet libero viverra cursus. Aliquam
                                 erat volutpat. Morbi id dictum quam, ut commodo lorem. In at nisi nec arcu porttitor
                                 aliquet vitae at dui. Sed sollicitudin nulla non leo viverra.</p>
-                            <h4>Fistum Alemu</h4>
+                            <h4>Salem Getachew</h4>
                             <span>CEO Company</span>
                         </div>
                         <div class="single-testimonial-item">
@@ -343,8 +280,8 @@
                     <div class="single-work-item">
                         <div class="number">01.</div>
                         <div class="work-text">
-                            <h4>Search the portal</h4>
-                            <p>Fusce urna quam, euismod sit amet mollis quis.Aliquam erat volutpat. Morbi id dictum quam, ut.</p>
+                            <h4>Search</h4>
+                            <p>Search by means and destination.</p>
                         </div>
                     </div>
                 </div>
@@ -353,7 +290,7 @@
                         <div class="number">02.</div>
                         <div class="work-text">
                             <h4>Choose the one 4u</h4>
-                            <p>Euismod sit amet mollis quis. Ali-quam erat volutpat. Morbi id dictum quam, ut commodo lorem. </p>
+                            <p>Choose The Best Provider 4U </p>
                         </div>
                     </div>
                 </div>
@@ -362,7 +299,7 @@
                         <div class="number">03.</div>
                         <div class="work-text">
                             <h4>Book it!</h4>
-                            <p>Euismod sit amet mollis quis. Ali-quam erat volutpat. Morbi id dictum quam, ut commodo lorem. </p>
+                            <p>Book and Then Buy </p>
                         </div>
                     </div>
                 </div>
@@ -384,14 +321,11 @@
                             <h2>Get the App now!</h2>
                             <p>Explore some of the best places in the world</p>
                         </div>
-                        <p>Morbi id dictum quam, ut commodo lorem. Donec bibendum, enim ut luctus dictum, nisl turpis
-                            scelerisque sem, in dapibus neque odio eu sapien. Morbi ac aliquet erat. Sed dapibus, augue
-                            et malesuada maximus.</p>
+                        <p>Use our APP for fast and better services</p>
                         <ul>
-                            <li><img src="{% static 'img/check-icon.png'%}" alt="">Fusce urna quam, euismod sit amet mollis quis, vestibulum
-                                quis veli</li>
-                            <li><img src="{% static 'img/check-icon.png'%}" alt="">Vestibulum malesuada aliquet libero viverra cursus</li>
-                            <li><img src="{% static 'img/check-icon.png'%}" alt="">Urna quam, euismod sit amet mollis quis, vestibulum quis veli
+                            <li><img src="{% static 'img/check-icon.png'%}" alt="">Book Ticket</li>
+                            <li><img src="{% static 'img/check-icon.png'%}" alt="">Buy Ticket</li>
+                            <li><img src="{% static 'img/check-icon.png'%}" alt="">BabusMiles
                             </li>
                         </ul>
                         <a href="#"><img src="{% static 'img/apple-store.jpg'%}" alt=""></a>
@@ -412,7 +346,7 @@
                 <div class="col-lg-12">
                     <form action="#" class="newslatter-form">
                         <input type="text" placeholder="Your email address">
-                        <button type="submit">Subscribe to our Newsletter</button>
+                        <button type="submit">Subscribe</button>
                     </form>
                 </div>
             </div>
@@ -453,29 +387,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6">
-                    <div class="footer-widget">
-                        <h4>From the Blog</h4>
-                        <div class="single-blog">
-                            <div class="blog-pic">
-                                <img src="{% static 'img/f-blog-1.jpg'%}" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <h6>10 Best clubs in town</h6>
-                                <span>March 27, 2019</span>
-                            </div>
-                        </div>
-                        <div class="single-blog">
-                            <div class="blog-pic">
-                                <img src="{% static 'img/f-blog-2.jpg'%}" alt="">
-                            </div>
-                            <div class="blog-text">
-                                <h6>10 Best clubs in town</h6>
-                                <span>March 27, 2019</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        
             </div>
             <div class="row footer-bottom">
                 <div class="col-lg-5 order-2 order-lg-1">
@@ -497,17 +409,7 @@
             </div>
         </div>
     </footer>
-    <!-- Footer Section End -->
-
-    <!-- Js Plugins -->
-    <!-- <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery.magnific-popup.min.js"></script>
-    <script src="js/jquery.slicknav.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
-    <script src="js/jquery.nice-select.min.js"></script>
-    <script src="js/mixitup.min.js"></script>
-    <script src="js/main.js"></script> -->
+  
 
     <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
     <script src="{% static 'js/bootstrap.min.js'%}"></script>
