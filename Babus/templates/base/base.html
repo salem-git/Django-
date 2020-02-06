@@ -53,29 +53,29 @@
                 <ul>
                     <li class="active"><a href="{% url 'Home:index' %}">Home</a></li>
                  
-                    <li><a href="how-it-works.html">Explore</a></li>
+                    <!-- <li><a href="how-it-works.html">Explore</a></li> -->
                     <li class="active"><a href="{% url 'Buses:buses' %}">Buses</a></li>
                     <li class="active"><a href="{% url 'Train:train' %}">Train</a></li>
-                    <li><a href="listings.html">More Cities</a></li>
-                    <li><a href="blog.html">News</a></li>
+                    <!-- <li><a href="listings.html">More Cities</a></li> -->
+                    <!-- <li><a href="blog.html">News</a></li> -->
                     <li><a href="{% url 'Contact:contact' %}">Contact</a></li>
                 </ul>
             </nav>
             <div class="header-right">
                 <div class="user-access">
                     {% if user.is_authenticated %}
-                    <li class="nav-item">
+                  
                       <a class="nav-link" href="{% url 'logout' %}">Log Out</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'CustomerHome:fetch_journey' %}">Recent Journey</a>
-                      </li>
+                      <a class="nav-link" href="{% url 'CustomerHome:fetch_journey' %}">Recent Journey</a>
+                     <a href="{% url 'CustomerHome:CustomerHome' %}" class="primary-btn">Buy Tickets</a>
+                      
                     {% else %}
                     <a href="{% url 'Signup:signup' %}">Register/</a>
                     <a href="{% url 'login' %}">Login</a>
-                    {% endif %}
+                    
                 </div>
                 <a href="{% url 'login' %}" class="primary-btn">Buy Tickets</a>
+                {% endif %}
             </div>
             <div id="mobile-menu-wrap"></div>
         </div>

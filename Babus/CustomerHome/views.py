@@ -61,3 +61,7 @@ def create(response):
     else:
         form = CreateNewList()
     return render(response,"CustomerHome/recentJourney.html",{"form":form})
+def buyTicket(request):
+    return render(request,'BookConfirmation/buy.html')
+def confirm_ticket(request):
+    return render(request,'BookConfirmation/success.html')

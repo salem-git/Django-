@@ -1,0 +1,29 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+{% block content %}
+ <!-- This is home page -->
+ 
+<h1>Buy Ticket</h1>
+{% load crispy_forms_tags %}
+<div class="container">
+    <div class="contact-form medium-padding120">
+ <form method="POST" action="confirm_ticket">
+    {% csrf_token %}
+    {{form|crispy}}
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+          <input name="journey_departure" class="input-standard-grey" placeholder="Bank Account">
+        </div>
+       
+      </div>
+
+      <button type="submit">Confirm</button>
+  </form>
+</div>
+</div>
+
+
+{% endblock %}
+
+

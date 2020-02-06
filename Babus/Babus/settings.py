@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'BookConfirmation.apps.BookconfirmationConfig',
     'RecentJourney.apps.RecentjourneyConfig',
     'CustomerHome.apps.CustomerhomeConfig',
     'Train.apps.TrainConfig',

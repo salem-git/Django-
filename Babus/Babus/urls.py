@@ -26,6 +26,7 @@ urlpatterns = [
     path('train/',include('Train.urls')),
     path('logged/',include('CustomerHome.urls')),
     path('recentjourney/',include('RecentJourney.urls')),
+    path('buy/',include('BookConfirmation.urls')),
     path('',include('django.contrib.auth.urls')),
     
 ]
